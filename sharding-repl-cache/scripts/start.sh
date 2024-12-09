@@ -52,9 +52,9 @@ for(var i = 0; i < 1000; i++) db.helloDoc.insert({age:i, name:"ly"+i})
 EOF
 
 # redis
-docker compose exec -T redis_1 bash <<EOF
-echo "yes" | redis-cli --cluster create   173.17.0.21:6379   173.17.0.22:6379   173.17.0.23:6379   173.17.0.24:6379   173.17.0.25:6379   173.17.0.26:6379   --cluster-replicas 1 
-EOF
+#docker compose exec -T redis_1 bash <<EOF
+#echo "yes" | redis-cli create   173.17.0.21:6379
+#EOF
 
 
 

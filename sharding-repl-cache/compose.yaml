@@ -230,71 +230,6 @@ services:
       app-network:
         ipv4_address: 173.17.0.21
 
-  redis_2:
-    image: "redis:latest"
-    container_name: redis_2
-    ports:
-      - "6379"
-    volumes:
-      - redis_2_data:/data
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-    networks:
-      app-network:
-        ipv4_address: 173.17.0.22
-
-  redis_3:
-    image: "redis:latest"
-    container_name: redis_3
-    ports:
-      - "6379"
-    volumes:
-      - redis_3_data:/data
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-    networks:
-      app-network:
-        ipv4_address: 173.17.0.23
-
-  redis_4:
-    image: "redis:latest"
-    container_name: redis_4
-    ports:
-      - "6379"
-    volumes:
-      - redis_4_data:/data
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-    networks:
-      app-network:
-        ipv4_address: 173.17.0.24
-
-  redis_5:
-    image: "redis:latest"
-    container_name: redis_5
-    ports:
-      - "6379"
-    volumes:
-      - redis_5_data:/data
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-    networks:
-      app-network:
-        ipv4_address: 173.17.0.25
-
-  redis_6:
-    image: "redis:latest"
-    container_name: redis_6
-    ports:
-      - "6379"
-    volumes:
-      - redis_6_data:/data
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
-    networks:
-      app-network:
-        ipv4_address: 173.17.0.26
-
   pymongo_api:
     container_name: pymongo_api
     build: 
@@ -311,11 +246,7 @@ services:
       - shard2_3
       - mongos_router
       - redis_1
-      - redis_2
-      - redis_3
-      - redis_4
-      - redis_5
-      - redis_6
+
     ports:
       - 8080:8080
     networks:
@@ -343,8 +274,3 @@ volumes:
   shard2_2-data:
   shard2_3-data:
   redis_1_data: {}
-  redis_2_data: {}
-  redis_3_data: {}
-  redis_4_data: {}
-  redis_5_data: {}
-  redis_6_data: {}
